@@ -6,11 +6,13 @@ import org.springframework.amqp.rabbit.support.CorrelationData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+
 @Component
 public class OrderSender {
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
+
 
     public void send(Order order)throws Exception{
 
