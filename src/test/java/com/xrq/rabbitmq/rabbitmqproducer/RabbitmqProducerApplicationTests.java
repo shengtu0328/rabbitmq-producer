@@ -1,6 +1,6 @@
 package com.xrq.rabbitmq.rabbitmqproducer;
 
-import com.xrq.rabbitmq.rabbitmqproducer.entity.Order;
+import com.xrq.rabbitmq.entity.Order;
 import com.xrq.rabbitmq.rabbitmqproducer.producer.OrderSender;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,6 +21,9 @@ public class RabbitmqProducerApplicationTests {
     @Autowired
     private OrderSender orderSender;
 
+    /*
+    启动producer，consumer,
+     */
     @Test
     public void testOrdersender()throws Exception{
 
