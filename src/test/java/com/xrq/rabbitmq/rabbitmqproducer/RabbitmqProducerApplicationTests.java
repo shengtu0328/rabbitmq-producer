@@ -1,7 +1,7 @@
 package com.xrq.rabbitmq.rabbitmqproducer;
 
 import com.xrq.rabbitmq.entity.Order;
-import com.xrq.rabbitmq.rabbitmqproducer.producer.OrderSender;
+import com.xrq.rabbitmq.rabbitmqproducer.producer.RabbitOrderSender;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ public class RabbitmqProducerApplicationTests {
     }
 
     @Autowired
-    private OrderSender orderSender;
+    private RabbitOrderSender orderSender;
 
     /*
     启动producer，consumer,
