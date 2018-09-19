@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * @program: rabbitmq-producer
- * @description: 此类加载了数据库连接 和 数据库连接池 的所有配置信息
+ * @description: 此类加载了数据库连接   和 数据库连接池 的所有配置信息
  * @author: rqxiao
  * @create: 2018-09-06 14:32
  **/
