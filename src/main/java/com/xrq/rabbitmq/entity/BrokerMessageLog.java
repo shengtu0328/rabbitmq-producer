@@ -2,19 +2,31 @@ package com.xrq.rabbitmq.entity;
 
 import java.util.Date;
 
+/**
+ * 消息日志表
+ */
 public class BrokerMessageLog {
+
+
+    //消息唯一ID
     private String messageId;
 
+    //order对象json化后的存储
     private String message;
 
+    //重试次数
     private Integer tryCount;
 
+    //消息投递状态  0 投递中 1 投递成功   2 投递失败
     private String status;
 
+    //下一次重试时间 或 超时时间
     private Date nextRetry;
 
+    //创建时间
     private Date createTime;
 
+    //更新时间
     private Date updateTime;
 
     public String getMessageId() {

@@ -4,11 +4,12 @@ import java.io.Serializable;
 
 /**
  * @program: rabbitmq-consumer
- * @description:
+ * @description:订单表
  * @author: rqxiao
  * @create: 2018-08-31 16:44
- *
- *  Order通过网络中发送到mq，所以一定要实现Serializable接口，producer项目和consumer项目中必须保持一致，包括所在的包，不然消费者会报错，无法反序列化找不到类。Could not deserialize object, ClassNotFoundException
+ * <p>
+ * Order通过网络中发送到mq，所以一定要实现Serializable接口，
+ * producer项目和consumer项目中必须保持一致，包括所在的包，不然消费者会报错，无法反序列化找不到类。Could not deserialize object, ClassNotFoundException
  **/
 public class Order implements Serializable {
 
@@ -17,7 +18,7 @@ public class Order implements Serializable {
     private String name;//order实体普通字段
     private String messageId; //**存储消息发送的唯一标识
 
-    public Order(){
+    public Order() {
 
     }
 

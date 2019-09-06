@@ -19,7 +19,7 @@ public class MybatisMapperScanerConfig {
     public MapperScannerConfigurer mapperScannerConfigurer() {
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
-        mapperScannerConfigurer.setBasePackage("com.xrq.springboot.mapper");
+        mapperScannerConfigurer.setBasePackage("com.xrq.rabbitmq.mapper");
         return mapperScannerConfigurer;
     }
 

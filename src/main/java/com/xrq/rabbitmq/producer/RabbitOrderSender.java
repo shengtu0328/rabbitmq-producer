@@ -1,4 +1,4 @@
-package com.xrq.rabbitmq.rabbitmqproducer.producer;
+package com.xrq.rabbitmq.producer;
 
 import com.xrq.rabbitmq.constant.Constants;
 import com.xrq.rabbitmq.entity.Order;
@@ -27,8 +27,9 @@ public class RabbitOrderSender {
         public void confirm(CorrelationData correlationData, boolean ack, String cause) {
             System.err.println("correlationData: " + correlationData);
             String messageId = correlationData.getId();
-            if(ack){
+            if (ack) {
                 //如果confirm返回成功 则进行更新
+                System.err.println("收到confirm为true");
                 brokerMessageLogMapper.changeBrokerMessageLogStatus(messageId, Constants.ORDER_SEND_SUCCESS, new Date());
             } else {
                 //失败则进行具体的后续操作:重试 或者补偿等手段
@@ -37,12 +38,17 @@ public class RabbitOrderSender {
         }
     };
 
-    //发送消息方法调用: 构建自定义对象消息
+    //测试发送消息方法调用: 构建自定义对象消息
     public void sendOrder(Order order) throws Exception {
-        rabbitTemplate.setConfirmCallback(confirmCallback);//rabbitTemplate设置成监听的
+        //rabbitTemplate设置成监听的,才能监听回调结果
+        rabbitTemplate.setConfirmCallback(confirmCallback);
         //消息唯一ID
         CorrelationData correlationData = new CorrelationData(order.getMessageId());
-        rabbitTemplate.convertAndSend("order-exchange", "order.ABC", order, correlationData);
+        rabbitTemplate.convertAndSend(
+                "order-exchange1",
+                "order.ABC"
+                , order
+                , correlationData);
     }
 
 }
