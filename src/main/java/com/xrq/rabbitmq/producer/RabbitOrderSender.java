@@ -45,7 +45,7 @@ public class RabbitOrderSender {
         //消息唯一ID
         CorrelationData correlationData = new CorrelationData(order.getMessageId());
         rabbitTemplate.convertAndSend(
-                "order-exchange1",
+                "order-exchange",
                 "order.ABC"
                 , order
                 , correlationData);
